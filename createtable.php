@@ -4,8 +4,8 @@ $pwd = "Spacedementia9";
 $db = "mysqlbase";
   $sql = "CREATE TABLE registration_tb(
     id INT NOT NULL IDENTITY(1,1) 
-    PRIMARY KEY(id);
-    name VARCHAR(30);
-    email VARCHAR(30);
-    date (DATE)";
+    PRIMARY KEY(id),
+    name VARCHAR(30),
+    email VARCHAR(30),
+    date (DATE),
     $conn->query($sql);
