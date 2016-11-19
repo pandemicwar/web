@@ -8,6 +8,6 @@ $db = "mysqlbase";
     PRIMARY KEY(id),
     name VARCHAR(30),
     email VARCHAR(30),
-    date VARCHAR(30),
+    date DATE)";
     $conn->query($sql);
 ?>
