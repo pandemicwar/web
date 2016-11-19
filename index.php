@@ -1,5 +1,9 @@
 <html>
 <head>
+  
+    <?php
+    include 'createtable.php';
+    ?>
 <Title>Registration Form</Title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style type="text/css">
