@@ -1,6 +1,6 @@
 <html>
 <head>
-  
+  error_reporting( E_ALL );
     <?php
     include 'createtable.php';
     ?>
