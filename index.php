@@ -3,7 +3,7 @@
      
      <?php
      ini_set('display_errors','On');
-error_reporting('E_ALL');
+error_reporting('E_WARNING');
     include 'createtable.php';
     ?>
 <Title>Registration Form</Title>
