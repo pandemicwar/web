@@ -2,7 +2,8 @@
 <head>
      
      <?php
-     error_reporting( E_ALL );
+     ini_set('display_errors','On');
+error_reporting('E_ALL');
     include 'createtable.php';
     ?>
 <Title>Registration Form</Title>
