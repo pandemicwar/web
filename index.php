@@ -1,6 +1,8 @@
 <html>
 <head>
+     
      <?php
+     error_reporting( E_ALL );
     include 'createtable.php';
     ?>
 <Title>Registration Form</Title>
