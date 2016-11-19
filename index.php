@@ -1,11 +1,6 @@
 <html>
 <head>
      
-     <?php
-     ini_set('display_errors','On');
-error_reporting('E_WARNING');
-    include 'createtable.php';
-    ?>
 <Title>Registration Form</Title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style type="text/css">
