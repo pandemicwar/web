@@ -25,8 +25,9 @@ try {
                    VALUES (?,?,?)";
     $stmt = $conn->prepare($sql_insert);
     $stmt->bindValue(1, $name);
-    $stmt->bindValue(2, $email);
-    $stmt->bindValue(3, $date);
+    $stmt->bindValue(2, $password);
+    $stmt->bindValue(3, $email);
+    $stmt->bindValue(4, $date);
     $stmt->execute();
 }
 catch(Exception $e) {
@@ -34,7 +35,7 @@ catch(Exception $e) {
 }
 echo "<h3>Your're registered!</h3>";
 }
-$sql_select = "SELECT * FROM registration_tbl";
+$sql_select = "SELECT * FROM registration_tbl1";
 $stmt = $conn->query($sql_select);
 $registrants = $stmt->fetchAll(); 
 if(count($registrants) > 0) {
@@ -70,7 +71,7 @@ if(isset($_POST['submit']))
     }
 
     # проверяем, не сущестует ли пользователя с таким именем
-    $query = mysqli_query($link, "SELECT COUNT(user_id) FROM users WHERE user_login='".mysqli_real_escape_string($link, $_POST['login'])."'");
+    $query = mysqli_query($conn, "SELECT COUNT(user_id) FROM users WHERE user_login='".mysqli_real_escape_string($conn, $_POST['login'])."'");
     if(mysqli_num_rows($query) > 0)
     {
         $err[] = "Пользователь с таким логином уже существует в базе данных";
@@ -82,8 +83,7 @@ if(isset($_POST['submit']))
 
         $login = $_POST['login'];
 
-        # Убераем лишние пробелы и делаем двойное шифрование
-    
+          
 
         mysqli_query($link,"INSERT INTO users SET user_login='".$login."', user_password='".$password."'");
         header("Location: login.php"); exit();
