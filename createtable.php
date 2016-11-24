@@ -1,11 +1,11 @@
 ?php
 // DB connection info
 $host = "localhost\sqlexpress";
-$user = "user name";
-$pwd = "password";
+$user = "vasilevvs007";
+$pwd = "Spacedementia9";
 $db = "registration";
 try {
-    $conn = new PDO("sqlsrv:server = tcp:sqlbaseofrthesite.database.windows.net,1433; Database = mysqlbase", "vasilevvs007", "{your_password_here}");
+    $conn = new PDO("sqlsrv:server = tcp:sqlbaseofrthesite.database.windows.net,1433; Database = mysqlbase", "vasilevvs007", "Spacedementia9");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "CREATE TABLE registration_tbl(
     id INT NOT NULL IDENTITY(1,1) 
