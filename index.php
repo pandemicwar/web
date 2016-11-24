@@ -1,95 +1,56 @@
-<html>
-<head>
-<Title>Registration Form</Title>
-<style type="text/css">
-    body { background-color:
- #fff; border-top: solid 10px #000;
- color: #333; font-size: .85em;
- margin: 20; padding: 20;
- font-family: "Segoe UI",
- Verdana, Helvetica, Sans-Serif;
-    }
-    h1, h2, h3,{ color: #000; 
-margin-bottom: 0; padding-bottom: 0; }
-    h1 { font-size: 2em; }
-    h2 { font-size: 1.75em; }
-    h3 { font-size: 1.2em; }
-    table { margin-top: 0.75em; }
-    th { font-size: 1.2em;
- text-align: left; border: none; padding-left: 0; }
-    td { padding: 0.25em 2em 0.25em 0em; 
-border: 0 none; }
-</style>
-</head>
-<body>
-<h1>Register here!</h1>
-<p>Fill in your name and 
-email address, then click <strong>Submit</strong> 
-to register.</p>
-<form method="post" action="index.php" 
-enctype="multipart/form-data" >
-      Name  <input type="text" 
-name="name" id="name"/></br>
-      Email <input type="text" 
-name="email" id="email"/></br>
-      <input type="submit" 
-name="submit" value="Submit" />
-</form>
-<?php
-// DB connection info
-$host = "localhost\sqlexpress";
-$user = "vasilevvs007";
-$pwd = "Spacedementia9";
-$db = "mysqlbase";
-// Connect to database.
-try {
-    $conn = new PDO("sqlsrv:server = tcp:sqlbaseofrthesite.database.windows.net,1433; Database = mysqlbase", "vasilevvs007", "Spacedementia9");
-    $conn->setAttribute
-( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-}
-catch (PDOException $e) {
-    print("Error connecting to SQL Server.");
-    die(print_r($e));
-}
-if(!empty($_POST)) {
-try {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $date = date("Y-m-d");
-    // Insert data
-    $sql_insert = 
-"INSERT INTO registration_tbl (name, email, date) 
-                   VALUES (?,?,?)";
-    $stmt = $conn->prepare($sql_insert);
-    $stmt->bindValue(1, $name);
-    $stmt->bindValue(2, $email);
-    $stmt->bindValue(3, $date);
-    $stmt->execute();
-}
-catch(Exception $e) {
-    die(var_dump($e));
-}
-echo "<h3>Your're registered!</h3>";
-}
-$sql_select = "SELECT * FROM registration_tbl";
-$stmt = $conn->query($sql_select);
-$registrants = $stmt->fetchAll(); 
-if(count($registrants) > 0) {
-    echo "<h2>People who are registered:</h2>";
-    echo "<table>";
-    echo "<tr><th>Name</th>";
-    echo "<th>Email</th>";
-    echo "<th>Date</th></tr>";
-    foreach($registrants as $registrant) {
-        echo "<tr><td>".$registrant['name']."</td>";
-        echo "<td>".$registrant['email']."</td>";
-        echo "<td>".$registrant['date']."</td></tr>";
-    }
-    echo "</table>";
-} else {
-    echo "<h3>No one is currently registered.</h3>";
-}
+<?
+// Страница регистрации нового пользователя
 
+# Соединямся с БД
+$link=mysqli_connect("localhost/sqlexpress", "mysqlbase", "vasilevvs007", "Spacedementia9");
+
+if(isset($_POST['submit']))
+{
+    $err = array();
+
+    # проверям логин
+    if(!preg_match("/^[a-zA-Z0-9]+$/",$_POST['login']))
+    {
+        $err[] = "Логин может состоять только из букв английского алфавита и цифр";
+    }
+
+    if(strlen($_POST['login']) < 3 or strlen($_POST['login']) > 30)
+    {
+        $err[] = "Логин должен быть не меньше 3-х символов и не больше 30";
+    }
+
+    # проверяем, не сущестует ли пользователя с таким именем
+    $query = mysqli_query($link, "SELECT COUNT(user_id) FROM users WHERE user_login='".mysqli_real_escape_string($link, $_POST['login'])."'");
+    if(mysqli_num_rows($query) > 0)
+    {
+        $err[] = "Пользователь с таким логином уже существует в базе данных";
+    }
+
+    # Если нет ошибок, то добавляем в БД нового пользователя
+    if(count($err) == 0)
+    {
+
+        $login = $_POST['login'];
+
+        # Убераем лишние пробелы и делаем двойное шифрование
+        $password = md5(md5(trim($_POST['password'])));
+
+        mysqli_query($link,"INSERT INTO users SET user_login='".$login."', user_password='".$password."'");
+        header("Location: login.php"); exit();
+    }
+    else
+    {
+        print "<b>При регистрации произошли следующие ошибки:</b><br>";
+        foreach($err AS $error)
+        {
+            print $error."<br>";
+        }
+    }
+}
 ?>
-</body>
-</html>
+
+<form method="POST">
+Логин <input name="login" type="text"><br>
+Пароль <input name="password" type="password"><br>
+<input name="submit" type="submit" value="Зарегистрироваться">
+</form>
