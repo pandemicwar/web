@@ -37,13 +37,13 @@ name="submit" value="Submit" />
 </form>
 <?php
 // DB connection info
-$host = "tcp:srgk0.database.windows.net,1433";
+$host = "localhost\sqlexpress";
 $user = "vasilevvs007";
 $pwd = "Spacedementia9";
 $db = "mysqlbase";
 // Connect to database.
 try {
-    $conn = new PDO("sqlsrv:server = tcp:sqlbaseofrthesite.database.windows.net,1433; Database = mysql", "vasilevvs007", "Spacedementia9");
+    $conn = new PDO("sqlsrv:server = tcp:sqlbaseofrthesite.database.windows.net,1433; Database = mysqlbase", "vasilevvs007", "Spacedementia9");
     $conn->setAttribute
 ( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 }
