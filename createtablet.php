@@ -10,8 +10,9 @@ try {
     $sql = "CREATE TABLE registration_tbl(
     id INT NOT NULL IDENTITY(1,1) 
     PRIMARY KEY(id),
-    name VARCHAR(30),
-    email VARCHAR(30),
+    user_login VARCHAR(30),
+    user_password VARCHAR(30),
+    user_email VARCHAR(30),
     date DATE)";
     $conn->query($sql);
 }
