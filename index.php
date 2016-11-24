@@ -1,15 +1,14 @@
 <html>
 <head>
-     
 <Title>Registration Form</Title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style type="text/css">
     body { background-color:
  #fff; border-top: solid 10px #000;
  color: #333; font-size: .85em;
  margin: 20; padding: 20;
  font-family: "Segoe UI",
- Verdana, Helvetica, Sans-Serif;}
+ Verdana, Helvetica, Sans-Serif;
+    }
     h1, h2, h3,{ color: #000; 
 margin-bottom: 0; padding-bottom: 0; }
     h1 { font-size: 2em; }
@@ -22,28 +21,36 @@ margin-bottom: 0; padding-bottom: 0; }
 border: 0 none; }
 </style>
 </head>
-<h1>Регистрация</h1>
-<p>Заполните ваше имя и адрес электронной почты, затем нажмите кнопку Отправить, чтобы зарегистрироваться.</p>
+<body>
+<h1>Register here!</h1>
+<p>Fill in your name and 
+email address, then click <strong>Submit</strong> 
+to register.</p>
 <form method="post" action="index.php" 
 enctype="multipart/form-data" >
-       Имя  <input type="text" 
+      Name  <input type="text" 
 name="name" id="name"/></br>
       Email <input type="text" 
 name="email" id="email"/></br>
       <input type="submit" 
-name="submit" value="Отправить" />
+name="submit" value="Submit" />
 </form>
-
+<?php
+// DB connection info
+$host = "tcp:srgk0.database.windows.net,1433";
+$user = "vasilevvs007";
+$pwd = "Spacedementia9";
+$db = "mysqlbase";
+// Connect to database.
 try {
-    $conn = new PDO
-( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
+    $conn = new PDO("sqlsrv:server = tcp:sqlbaseofrthesite.database.windows.net,1433; Database = mysql", "vasilevvs007", "Spacedementia9");
     $conn->setAttribute
 ( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 }
-catch(Exception $e){
-    die(var_dump($e));
+catch (PDOException $e) {
+    print("Error connecting to SQL Server.");
+    die(print_r($e));
 }
-
 if(!empty($_POST)) {
 try {
     $name = $_POST['name'];
@@ -62,9 +69,8 @@ try {
 catch(Exception $e) {
     die(var_dump($e));
 }
-echo "<h3> Вы зарегистрированы! </h3>";
+echo "<h3>Your're registered!</h3>";
 }
-
 $sql_select = "SELECT * FROM registration_tbl";
 $stmt = $conn->query($sql_select);
 $registrants = $stmt->fetchAll(); 
@@ -83,3 +89,7 @@ if(count($registrants) > 0) {
 } else {
     echo "<h3>No one is currently registered.</h3>";
 }
+
+?>
+</body>
+</html>
