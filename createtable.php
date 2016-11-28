@@ -9,9 +9,10 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "CREATE TABLE registration_tbl(
     id INT NOT NULL IDENTITY(1,1) 
-    login VARCHAR(30),
+    PRIMARY KEY(user_id),
+    user_login VARCHAR(30),
     user_password VARCHAR(30),
-    PRIMARY KEY(id),
+    
     user_email VARCHAR(30),
     date DATE)";
     $conn->query($sql);
