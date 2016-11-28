@@ -9,7 +9,7 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "CREATE TABLE users(
     user_id INT NOT NULL IDENTITY(1,1) 
-    user_login VARCHAR(30),]
+    user_login VARCHAR(30),
     user_password VARCHAR(30),
     PRIMARY KEY(user_id),
     user_email VARCHAR(30),
