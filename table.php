@@ -1,6 +1,6 @@
 <?php
 // DB connection info
-$host = "sqlbaseofrthesite.database.windows.net,1433";
+$host = "localhost/sqlexpress";
 $user = "vasilevvs007";
 $pwd = "Spacedementia9";
 $db = "mysqlbase";
