@@ -1,6 +1,6 @@
 <?php
 // DB connection info
-$host = "localhost/sqlexpress";
+$host = "localhost\sqlexpress";
 $user = "vasilevvs007";
 $pwd = "Spacedementia9";
 $db = "mysqlbase";
