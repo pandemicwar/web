@@ -7,11 +7,11 @@ $db = "mysqlbase";
 try {
     $conn = new PDO("sqlsrv:server = tcp:sqlbaseofrthesite.database.windows.net,1433; Database = mysqlbase", "vasilevvs007", "Spacedementia9");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "CREATE TABLE registration_tbl1(
-    id INT NOT NULL IDENTITY(1,1) 
-    PRIMARY KEY(id),
-    user_login VARCHAR(30),
+    $sql = "CREATE TABLE users(
+    user_id INT NOT NULL IDENTITY(1,1) 
+    user_login VARCHAR(30),]
     user_password VARCHAR(30),
+    PRIMARY KEY(user_id),
     user_email VARCHAR(30),
     date DATE)";
     $conn->query($sql);
