@@ -5,9 +5,9 @@ $user = "vasilevvs007";
 $pwd = "Spacedementia9";
 $db = "mysqlbase";
 try {
-    $conn = new PDO("sqlsrv:server = tcp:sqlbaseofrthesite.database.windows.net,1433; Database = "mysqlbase", "vasilevvs007", "Spacedementia9");
+    $conn = new PDO("sqlsrv:server = tcp:serverforsqlbase.database.windows.net,1433; Database = mysqlbase", "vasilevvs007", "{your_password_here}");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "CREATE TABLE create_usr(
+    $sql = "CREATE TABLE users(
     user_id INT NOT NULL IDENTITY(1,1) 
     user_login VARCHAR(30),
     user_password VARCHAR(30),
