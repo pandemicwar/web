@@ -8,7 +8,7 @@ try {
     $conn = new PDO("sqlsrv:server = tcp:serverforsqlbase.database.windows.net,1433; Database = mysqlbase", "vasilevvs007", "Spacedementia9");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "CREATE TABLE users(
-    user_id INT NOT NULL AUTO_INCREMENT 
+    user_id INT NOT NULL AUTO_INCREMENT, 
     PRIMARY KEY(user_id),
     user_login VARCHAR(30),
     user_password VARCHAR(30),
