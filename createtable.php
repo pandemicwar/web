@@ -12,7 +12,6 @@ try {
     PRIMARY KEY(user_id),
     user_login VARCHAR(30),
     user_password VARCHAR(30),
-    
     user_email VARCHAR(30),
     date DATE)";
     $conn->query($sql);
