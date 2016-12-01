@@ -48,8 +48,8 @@ if(count($registrants) > 0) {
     echo "<th>Email</th>";
     echo "<th>Date</th></tr>";
     foreach($registrants as $registrant) {
-        echo "<tr><td>".$registrant['login']."</td>";
-        echo "<td>".$registrant['email']."</td>";
+        echo "<tr><td>".$registrant['user_login']."</td>";
+        echo "<td>".$registrant['user_email']."</td>";
         echo "<td>".$registrant['date']."</td></tr>";
     }
     echo "</table>";
