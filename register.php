@@ -7,9 +7,7 @@ $db = "mysqlbase";
 # Соединямся с БД
 try {
     
-    try {
-   
-    
+       
     $conn = new PDO("sqlsrv:server = tcp:sqlbaseofrthesite.database.windows.net,1433; Database = mysqlbase", "vasilevvs007", "Spacedementia9");
     $conn->setAttribute
 ( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
