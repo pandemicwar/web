@@ -20,7 +20,7 @@ if(!empty($_POST)) {
 try {
     $login = $_POST['user_login'];
     $password=$_POST['user_password']
-       $email = $_POST['user_emailemail'];
+       $email = $_POST['user_email'];
     
     $date = date("Y-m-d");
     // Insert data
