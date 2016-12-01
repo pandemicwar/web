@@ -18,12 +18,14 @@ catch (PDOException $e) {
 }
 if(!empty($_POST)) {
 try {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
+    $login = $_POST['user_login'];
+    $password=$_POST['user_password']
+       $email = $_POST['user_emailemail'];
+    
     $date = date("Y-m-d");
     // Insert data
     $sql_insert = 
-"INSERT INTO users (user_login, user_email, date) 
+"INSERT INTO users (user_login, user_password, user_email, date) 
                    VALUES (?,?,?)";
     $stmt = $conn->prepare($sql_insert);
     $stmt->bindValue(1, $name);
@@ -62,18 +64,18 @@ if(isset($_POST['submit']))
     $err = array();
 
     # проверям логин
-    if(!preg_match("/^[a-zA-Z0-9]+$/",$_POST['login']))
+    if(!preg_match("/^[a-zA-Z0-9]+$/",$_POST['user_login']))
     {
         $err[] = "Логин может состоять только из букв английского алфавита и цифр";
     }
 
-    if(strlen($_POST['login']) < 3 or strlen($_POST['login']) > 30)
+    if(strlen($_POST['user_login']) < 3 or strlen($_POST['user_login']) > 30)
     {
         $err[] = "Логин должен быть не меньше 3-х символов и не больше 30";
     }
 
     # проверяем, не сущестует ли пользователя с таким именем
-    $query = mysqli_query($conn, "SELECT COUNT(user_id) FROM users WHERE user_login='".mysqli_real_escape_string($conn, $_POST['login'])."'");
+    $query = mysqli_query($conn, "SELECT COUNT(user_id) FROM users WHERE user_login='".mysqli_real_escape_string($conn, $_POST['user_login'])."'");
     if(mysqli_num_rows($query) > 0)
     {
         $err[] = "Пользователь с таким логином уже существует в базе данных";
@@ -87,7 +89,7 @@ if(isset($_POST['submit']))
 
           
 
-        mysqli_query($link,"INSERT INTO users SET user_login='".$login."', user_password='".$password."'");
+        mysqli_query($conn,"INSERT INTO users SET user_login='".$login."', user_password='".$password."'");
         header("Location: login.php"); exit();
     }
     else
