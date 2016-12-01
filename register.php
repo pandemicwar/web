@@ -18,13 +18,13 @@ catch (PDOException $e) {
 }
 if(!empty($_POST)) {
 try {
-    $login = $_POST['user_login'];
-    $password=$_POST['user_password']
-    $email = $_POST['user_email'];
+    $login = $_POST['name'];
+    $password=$_POST['password']
+    $email = $_POST['email'];
     $date = date("Y-m-d");
     // Insert data
     $sql_insert = 
-"INSERT INTO users (user_login, user_password, user_email, date) 
+"INSERT INTO users (name, password, email, date) 
                    VALUES (?,?,?,?)";
     $stmt = $conn->prepare($sql_insert);
     $stmt->bindValue(1, $login);
