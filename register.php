@@ -28,7 +28,7 @@ try {
 "INSERT INTO users (user_login, user_password, user_email, date) 
                    VALUES (?,?,?)";
     $stmt = $conn->prepare($sql_insert);
-    $stmt->bindValue(1, $name);
+    $stmt->bindValue(1, $login);
     $stmt->bindValue(2, $password);
     $stmt->bindValue(3, $email);
     $stmt->bindValue(4, $date);
