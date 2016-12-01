@@ -23,7 +23,7 @@ try {
     $date = date("Y-m-d");
     // Insert data
     $sql_insert = 
-"INSERT INTO users (name, email, date) 
+"INSERT INTO users (user_login, user_email, date) 
                    VALUES (?,?,?)";
     $stmt = $conn->prepare($sql_insert);
     $stmt->bindValue(1, $name);
