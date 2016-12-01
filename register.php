@@ -74,7 +74,7 @@ if(isset($_POST['submit']))
     }
 
     # проверяем, не сущестует ли пользователя с таким именем
-    $query = mysqli_query($conn, "SELECT COUNT(user_id) FROM users WHERE user_login='".mysqli_real_escape_string($conn, $_POST['user_login'])."'");
+    $query = query($conn, "SELECT COUNT(user_id) FROM users WHERE user_login='".mysqli_real_escape_string($conn, $_POST['user_login'])."'");
     if(mysqli_num_rows($query) > 0)
     {
         $err[] = "Пользователь с таким логином уже существует в базе данных";
@@ -88,7 +88,7 @@ if(isset($_POST['submit']))
 
           
 
-        mysqli_query($conn,"INSERT INTO users SET user_login='".$login."', user_password='".$password."'");
+        query($conn,"INSERT INTO users SET user_login='".$login."', user_password='".$password."'");
         header("Location: login.php"); exit();
     }
     else
