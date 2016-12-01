@@ -20,13 +20,12 @@ if(!empty($_POST)) {
 try {
     $login = $_POST['user_login'];
     $password=$_POST['user_password']
-       $email = $_POST['user_email'];
-    
+    $email = $_POST['user_email'];
     $date = date("Y-m-d");
     // Insert data
     $sql_insert = 
 "INSERT INTO users (user_login, user_password, user_email, date) 
-                   VALUES (?,?,?)";
+                   VALUES (?,?,?,?)";
     $stmt = $conn->prepare($sql_insert);
     $stmt->bindValue(1, $login);
     $stmt->bindValue(2, $password);
@@ -49,7 +48,7 @@ if(count($registrants) > 0) {
     echo "<th>Email</th>";
     echo "<th>Date</th></tr>";
     foreach($registrants as $registrant) {
-        echo "<tr><td>".$registrant['name']."</td>";
+        echo "<tr><td>".$registrant['login']."</td>";
         echo "<td>".$registrant['email']."</td>";
         echo "<td>".$registrant['date']."</td></tr>";
     }
