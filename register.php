@@ -28,13 +28,13 @@ try {
     $sql_insert = 
 "INSERT INTO users (name, password, email, date) 
                    VALUES (?,?,?,?)";
-   // $stmt = $conn->prepare($sql_insert);
-  //  $stmt->bindValue(1, $login);
-  //  $stmt->bindValue(2, $password);
-  //  $stmt->bindValue(3, $email);
-  //  $stmt->bindValue(4, $date);
-   // $stmt->execute();
-    $conn->query($sql_insert);
+    $stmt = $conn->prepare($sql_insert);
+   $stmt->bindValue(1, $login);
+   $stmt->bindValue(2, $password);
+   $stmt->bindValue(3, $email);
+   $stmt->bindValue(4, $date);
+   $stmt->execute();
+  
    
 }
 catch(Exception $e) {
@@ -43,7 +43,7 @@ catch(Exception $e) {
 echo "<h3>Your're registered!</h3>";
 }
 $sql_select = "SELECT * FROM users";
-$stmt = $conn->query($sql_select);
+$stmt = $conn->query($conn,$sql_select);
 $registrants = $stmt->fetchAll(); 
 if(count($registrants) > 0) {
     echo "<h2>People who are registered:</h2>";
