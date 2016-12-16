@@ -9,7 +9,6 @@ catch (PDOException $e) {
 }
 
     $query = query($conn, "SELECT *);
-    $userdata = mysqli_fetch_assoc($query);
 
    
     {
