@@ -34,6 +34,7 @@ try {
     $stmt->bindValue(3, $email);
     $stmt->bindValue(4, $date);
     $stmt->execute();
+    $conn->query($sql_insert);
 }
 catch(Exception $e) {
     die(var_dump($e));
