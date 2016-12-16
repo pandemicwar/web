@@ -16,7 +16,7 @@ try {
 catch (PDOException $e) {
     print("Error connecting to SQL Server.");
     die(print_r($e));
-    $conn->query($sql);
+  
 }
 if(!empty($_POST)) {
 try {
