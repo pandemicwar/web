@@ -8,8 +8,7 @@ catch (PDOException $e) {
     print("Error connecting to SQL Server.");
     die(print_r($e));
 }
-if (isset($_COOKIE['id']) and isset($_COOKIE['hash']))
-{
+
     $query = query($conn, "SELECT *);
     $userdata = mysqli_fetch_assoc($query);
 
