@@ -28,12 +28,13 @@ try {
     $sql_insert = 
 "INSERT INTO users (name, password, email, date) 
                    VALUES (?,?,?,?)";
-    $stmt = $conn->prepare($sql_insert);
-    $stmt->bindValue(1, $login);
-    $stmt->bindValue(2, $password);
-    $stmt->bindValue(3, $email);
-    $stmt->bindValue(4, $date);
-    $stmt->execute();
+   // $stmt = $conn->prepare($sql_insert);
+  //  $stmt->bindValue(1, $login);
+  //  $stmt->bindValue(2, $password);
+  //  $stmt->bindValue(3, $email);
+  //  $stmt->bindValue(4, $date);
+   // $stmt->execute();
+    $conn->query($sql_insert);
    
 }
 catch(Exception $e) {
