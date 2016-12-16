@@ -2,7 +2,6 @@ try {
     $conn = new PDO("sqlsrv:server = tcp:serverforsqlbase.database.windows.net,1433; Database = mysqlbase", "vasilevvs007", "Spacedementia9");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-    $conn->query($sql);
 }
 catch (PDOException $e) {
     print("Error connecting to SQL Server.");
