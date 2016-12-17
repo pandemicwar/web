@@ -26,8 +26,7 @@ try {
     $date = date("Y-m-d");
     // Insert data
     $sql_insert = 
-"INSERT INTO users (name, password, email, date) ;
-                // VALUES (?,?,?,?)";
+"INSERT INTO users (user_login, user_password, user_email, date) ;               // VALUES (?,?,?,?)";
     $stmt = $conn->prepare($sql_insert);
    $stmt->bindValue(1, $login);
    $stmt->bindValue(2, $password);
