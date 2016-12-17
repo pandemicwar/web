@@ -9,11 +9,9 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "CREATE TABLE users(
     user_id INT NOT NULL IDENTITY(1,1)
-    PRIMARY KEY(user_id),
-    user_login VARCHAR(30),
-    user_password VARCHAR(30),
-    user_email VARCHAR(30),
-    date DATE)";
+    PRIMARY KEY(id),
+    login VARCHAR(30),
+    password VARCHAR(30)";
     $conn->query($sql);
 }
 catch (PDOException $e) {
