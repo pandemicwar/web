@@ -17,7 +17,7 @@
  // подключаемся к базе
     include ("createtable.php");// файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь 
  // проверка на существование пользователя с таким же логином
-    $result = query("SELECT id FROM users WHERE login='$login'",$db);
+    $result = query("SELECT id FROM users WHERE login='$login'",$conn);
     $myrow = fetch_array($result);
     if (!empty($myrow['id'])) {
     exit ("Извините, введённый вами логин уже зарегистрирован. Введите другой логин.");
