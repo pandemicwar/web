@@ -18,7 +18,7 @@ $password = stripslashes($password);
 // подключаемся к базе
     include ("createtable.php");// файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь 
  
-$result = query("SELECT * FROM users WHERE login='$login'",$mysqlbase); //извлекаем из базы все данные о пользователе с введенным логином
+$result = query("SELECT * FROM users WHERE login='$login'",$conn); //извлекаем из базы все данные о пользователе с введенным логином
     $myrow = fetch_array($result);
     if (empty($myrow['password']))
     {
