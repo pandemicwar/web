@@ -20,8 +20,8 @@ catch (PDOException $e) {
 }
 if(!empty($_POST)) {
 try {
-    $login = $_POST['name'];
-    $password=$_POST['password']
+    $login = $_POST['user_login'];
+    $password=$_POST['user_password']
     $email = $_POST['email'];
     $date = date("Y-m-d");
     // Insert data
