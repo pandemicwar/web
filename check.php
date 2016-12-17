@@ -8,7 +8,7 @@ catch (PDOException $e) {
     die(print_r($e));
 }
 
-    $query = query($conn, "SELECT *);
+     $conn->query($conn, "SELECT *);
 
    
     {
