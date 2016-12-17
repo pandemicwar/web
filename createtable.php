@@ -11,7 +11,7 @@ try {
     user_id INT NOT NULL IDENTITY(1,1)
     PRIMARY KEY(id),
     login VARCHAR(30),
-    password VARCHAR(30)";
+    password VARCHAR(30))";
     $conn->query($sql);
 }
 catch (PDOException $e) {
