@@ -23,7 +23,7 @@
     exit ("Извините, введённый вами логин уже зарегистрирован. Введите другой логин.");
     }
  // если такого нет, то сохраняем данные
-    $result2 = mysql_query ("INSERT INTO users (login,password) VALUES('$login','$password')");
+    $result2 = query("INSERT INTO users (login,password) VALUES('$login','$password')");
     // Проверяем, есть ли ошибки
     if ($result2=='TRUE')
     {
