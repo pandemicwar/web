@@ -8,13 +8,13 @@ if (empty($login) or empty($password)) //если пользователь не 
     exit ("Вы ввели не всю информацию, вернитесь назад и заполните все поля!");
     }
     //если логин и пароль введены,то обрабатываем их, чтобы теги и скрипты не работали, мало ли что люди могут ввести
-    $login = stripslashes($login);
-    $login = htmlspecialchars($login);
-$password = stripslashes($password);
-    $password = htmlspecialchars($password);
+    
+  
+
+    
 //удаляем лишние пробелы
-    $login = trim($login);
-    $password = trim($password);
+  
+   
 // подключаемся к базе
     include ("createtable.php");// файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь 
  
