@@ -15,28 +15,7 @@ try {
     PRIMARY KEY(id_proj)
    )";
     $conn->query($sql);
-   $sql =  "CREATE TABLE sotrs_tbl(
-     id_sotr INT NOT NULL IDENTITY(1,1),
-     fio VARCHAR(30),
-     doljnost VARCHAR(30),
-     spisok_projectov_sotr INT,
-     PRIMARY KEY(id_sotr),
-      FOREIGN KEY (spisok_projectov_sotr) REFERENCES project_tbl (id_proj)    
-     )";
-    $conn->query($sql);
-   
-     $sql = "CREATE TABLE zadachas_tbl(
-      id_zadachi INT NOT NULL IDENTITY(1,1),
-      zadacha_kr_opis VARCHAR (100),
-      opisanie_razv VARCHAR (500),
-      ispolnitel INT,
-      zatrati_chasi INT,
-      PRIMARY KEY (id_zadachi),
-      FOREIGN KEY (ispolnitel) REFERENCES sotr_tbl (id_sotr)
-      )";
-    
-    
-    $conn->query($sql);
+  
 }
 catch (PDOException $e) {
     print("Error connecting to SQL Server.");
