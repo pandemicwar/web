@@ -30,9 +30,9 @@ try {
      id_sotr INT NOT NULL IDENTITY(1,1),
      fio VARCHAR(30),
      doljnost VARCHAR(30),
-     spisok_projectov_sotr INT,
+     spisok_projectov_sotr VARCHAR(30),
      PRIMARY KEY(id_sotr),
-      FOREIGN KEY (spisok_projectov_sotr) REFERENCES oneq_tbl (id_proj)    
+       
      )";
     $conn->query($sql);
     }
