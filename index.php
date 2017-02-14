@@ -10,6 +10,6 @@ $db = "mysqlbase";
  $sql = "SELECT * FROM `project_tbl`";
    $result = $conn->query($sql); 
    // В цикле перебираем все записи таблицы и выводим их
-   while ($row = $result->fetch_assoc())
+ 
    
 ?>
