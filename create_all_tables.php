@@ -45,7 +45,7 @@ try{
       zatrati_chasi INT,
       PRIMARY KEY (id_zadachi),
       FOREIGN KEY (ispolnitel) REFERENCES sottr_tbl (id_sotr)
-      )" ENGINE=InnoDB;
+      )";
   $conn->query($sql);}
 
 catch (PDOException $e) {
@@ -62,7 +62,7 @@ try{
       FOREIGN KEY (soft_id) REFERENCES softprojects_tbl (id_proj),
       FOREIGN KEY (softsotr_id) REFERENCES sottr_tbl (id_sotr)
       
-      )" ENGINE=InnoDB;
+      )";
   $conn->query($sql); }
 catch (PDOException $e) {
     print("Error connecting to SQL Server.");
