@@ -14,7 +14,7 @@ try {
     spis_sotr VARCHAR(500),
     PRIMARY KEY(id_proj)
    )";
-    $sql =  "CREATE TABLE sotr_tbl(
+    "CREATE TABLE sotr_tbl(
      id_sotr INT NOT NULL IDENTITY(1,1),
      fio VARCHAR(30),
      doljnost VARCHAR(30),
@@ -24,7 +24,7 @@ try {
      )";
     
    
-     $sql =  "CREATE TABLE zadacha_tbl(
+     "CREATE TABLE zadacha_tbl(
       id_zadachi INT NOT NULL IDENTITY(1,1),
       zadacha_kr_opis VARCHAR (100),
       opisanie_razv VARCHAR (500),
