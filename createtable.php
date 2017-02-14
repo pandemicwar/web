@@ -7,7 +7,7 @@ $db = "mysqlbase";
 try {
     $conn = new PDO("sqlsrv:server = tcp:serverforsqlbase.database.windows.net,1433; Database = mysqlbase", "vasilevvs007", "Spacedementia9");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql =   "CREATE TABLE project_tbl(
+    $sql =   "CREATE TABLE projects_tbl(
     id_proj INT NOT NULL IDENTITY(1,1),
     name_proj VARCHAR(30),
     def_proj VARCHAR(30),
@@ -15,7 +15,7 @@ try {
     PRIMARY KEY(id_proj)
    )";
     $conn->query($sql);
-   $sql =  "CREATE TABLE sotr_tbl(
+   $sql =  "CREATE TABLE sotrs_tbl(
      id_sotr INT NOT NULL IDENTITY(1,1),
      fio VARCHAR(30),
      doljnost VARCHAR(30),
@@ -25,7 +25,7 @@ try {
      )";
     $conn->query($sql);
    
-     $sql = "CREATE TABLE zadacha_tbl(
+     $sql = "CREATE TABLE zadachas_tbl(
       id_zadachi INT NOT NULL IDENTITY(1,1),
       zadacha_kr_opis VARCHAR (100),
       opisanie_razv VARCHAR (500),
