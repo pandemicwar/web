@@ -13,7 +13,7 @@ try {
      doljnost VARCHAR(30),
      spisok_projectov_sotr INT,
      PRIMARY KEY(id_sotr),
-      FOREIGN KEY (spisok_projectov_sotr) REFERENCES project_tbl (id_proj)    
+      FOREIGN KEY (spisok_projectov_sotr) REFERENCES projects_tbl (id_proj)    
      )";
     $conn->query($sql);
     }
