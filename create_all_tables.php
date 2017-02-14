@@ -11,9 +11,9 @@ try {
     id_proj INT NOT NULL IDENTITY(1,1),
     name_proj VARCHAR(30),
     def_proj VARCHAR(30),
-    spis_sotr INT,
+    spis_sotr VARCHAR(30),
     PRIMARY KEY(id_proj),
-    FOREIGN KEY (spis_sotr) REFERENCES second_tbl (id_sotr)
+   
    )";
     $conn->query($sql);
     }
@@ -32,7 +32,7 @@ try {
      doljnost VARCHAR(30),
      spisok_projectov_sotr INT,
      PRIMARY KEY(id_sotr),
-     FOREIGN KEY (spisok_projectov_sotr) REFERENCES first_tbl (id_sotr)
+     FOREIGN KEY (spisok_projectov_sotr) REFERENCES first_tbl (spis_sotr)
        
      )";
     $conn->query($sql);
