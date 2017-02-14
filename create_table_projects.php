@@ -11,8 +11,9 @@ try {
     id_proj INT NOT NULL IDENTITY(1,1),
     name_proj VARCHAR(30),
     def_proj VARCHAR(30),
-    spis_sotr VARCHAR(500),
-    PRIMARY KEY(id_proj)
+    spis_sotr INT,
+    PRIMARY KEY(id_proj),
+    FOREIGN KEY (spis_sotr) REFERENCES sotr_tbl (id_sotr)
    )";
     $conn->query($sql);
   
