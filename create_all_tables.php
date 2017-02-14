@@ -15,14 +15,14 @@ try {
     PRIMARY KEY(id_proj)
        
    )";
-    $conn->query($sql);
+    $conn->query($sql);}
     
 catch (PDOException $e) {
     print("Error connecting to SQL Server.");
     die(print_r($e));
 }
 echo "<h3>Table created.</h3>";
-
+try {
      $sql =  "CREATE TABLE soft_sotr_tbl(
      id_sotr INT NOT NULL IDENTITY(1,1),
      fio VARCHAR(30),
@@ -30,14 +30,14 @@ echo "<h3>Table created.</h3>";
      spisok_projectov_sotr INT,
      PRIMARY KEY(id_sotr)   
      )";
-    $conn->query($sql);
+    $conn->query($sql);}
     
 catch (PDOException $e) {
     print("Error connecting to SQL Server.");
     die(print_r($e));
 }
 echo "<h3>Table created.</h3>";
-
+try{
      $sql = "CREATE TABLE soft_zadachi_tbl(
       soft_id INT NOT NULL,
       soft_sotr_id INT NOT NULL,
@@ -47,13 +47,13 @@ echo "<h3>Table created.</h3>";
       FOREIGN KEY (soft_sotr_id) REFERENCES soft_sotr_table (id_sotr)
       
       )";
-  $conn->query($sql);
+  $conn->query($sql); }
 catch (PDOException $e) {
     print("Error connecting to SQL Server.");
     die(print_r($e));
 }
 echo "<h3>Table created.</h3>";
-
+try{
     
       $sql = "CREATE TABLE soft_zadachi_tbl(
       id_zadachi INT NOT NULL IDENTITY(1,1),
