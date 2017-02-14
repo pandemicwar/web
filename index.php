@@ -14,6 +14,13 @@ catch (PDOException $e) {
     print("Error connecting to SQL Server.");
     die(print_r($e));
 }
-$sql= show tables;
-
+ $sql = "SELECT * FROM `project_tbl`";
+   $result = $conn->query($sql); 
+   // В цикле перебираем все записи таблицы и выводим их
+   while ($row = $result->fetch_assoc())
+   {
+       // Оператором echo выводим на экран поля таблицы name_blog и text_blog
+    
+       echo 'Текст блога: '.$row['def_project'];
+   }
 ?>
