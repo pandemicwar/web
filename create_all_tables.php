@@ -46,7 +46,7 @@ echo "<h3>Table created.</h3>";
       FOREIGN KEY (soft_id) REFERENCES soft_projects_tbl (id_proj),
       FOREIGN KEY (soft_sotr_id) REFERENCES soft_sotr_table (id_sotr)
       
-      )" ENGINE=InnoDB;
+      )";
   $conn->query($sql);
 catch (PDOException $e) {
     print("Error connecting to SQL Server.");
@@ -55,18 +55,6 @@ catch (PDOException $e) {
 echo "<h3>Table created.</h3>";
 
     
-    
-    
-    
-    
-    
-    
-    
-   
-
-
-
-
       $sql = "CREATE TABLE soft_zadachi_tbl(
       id_zadachi INT NOT NULL IDENTITY(1,1),
       zadacha_kr_opis VARCHAR (100),
@@ -75,7 +63,7 @@ echo "<h3>Table created.</h3>";
       zatrati_chasi INT,
       PRIMARY KEY (id_zadachi)
       )";
-  $conn->query($sql);
+  $conn->query($sql);}
 
 catch (PDOException $e) {
     print("Error connecting to SQL Server.");
