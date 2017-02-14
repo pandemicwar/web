@@ -14,7 +14,7 @@ try {
     spis_sotr INT,
     PRIMARY KEY(id_proj),
     FOREIGN KEY (spis_sotr) REFERENCES sotr_tbl (id_sotr))";
-     $sql = "CREATE TABLE sotr_tbl(
+    "CREATE TABLE sotr_tbl(
      id_sotr INT NOT NULL IDENTITY(1,1),
      fio VARCHAR(30),
      doljnost VARCHAR(30),
@@ -22,7 +22,7 @@ try {
      PRIMARY KEY(id_sotr),
       FOREIGN KEY (spisok_projectov_sotr) REFERENCES project_tbl (id_proj)     
      )";
-      $sql = "CREATE TABLE zadacha_tbl(
+       "CREATE TABLE zadacha_tbl(
       id_zadachi INT NOT NULL IDENTITY(1,1),
       zadacha_kr_opis VARCHAR (100),
       opisanie_razv VARCHAR (500),
