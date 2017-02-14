@@ -43,7 +43,7 @@ $pwd = "Spacedementia9";
 $db = "mysqlbase";
 // Connect to database.
 try {
-    $conn = new PDO("sqlsrv:server = tcp:sqlbaseofrthesite.database.windows.net,1433; Database = mysqlbase", "vasilevvs007", "Spacedementia9");
+    $conn = new PDO("sqlsrv:server = tcp:serverforsqlbase.database.windows.net,1433; Database = mysqlbase", "vasilevvs007", "Spacedementia9");
     $conn->setAttribute
 ( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 }
