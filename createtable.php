@@ -9,26 +9,29 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "CREATE TABLE project_tbl(
     id_proj INT NOT NULL IDENTITY(1,1) 
-    PRIMARY KEY(id_proj),
+    
     name_proj VARCHAR(30),
     def_proj VARCHAR(30),
     spis_sotr INT,
+    PRIMARY KEY(id_proj),
     FOREIGN KEY (spis_sotr) REFERENCES sotr_tbl (id_sotr))";
      $sql = "CREATE TABLE sotr_tbl(
      id_sotr INT NOT NULL IDENTITY(1,1)
-     PRIMARY KEY(id_sotr),
+     
      fio VARCHAR(30),
      doljnost VARCHAR(30),
      spisok_projectov_sotr INT,
+     PRIMARY KEY(id_sotr),
       FOREIGN KEY (spisok_projectov_sotr) REFERENCES project_tbl (id_proj)     
      )";
       $sql = "CREATE TABLE zadacha_tbl(
-      id_zadachi INT INT NOT NULL IDENTITY(1,1)
-      PRIMARY KEY (id_zadachi),
+      id_zadachi INT NOT NULL IDENTITY(1,1)
+      
       zadacha_kr_opis VARCHAR (100),
       opisanie_razv VARCHAR (500),
       ispolnitel INT,
       zatrati_chasi INT,
+      PRIMARY KEY (id_zadachi),
       FOREIGN KEY (ispolnitel) REFERENCES sotr_tbl (id_sotr)
       )";
     
