@@ -16,15 +16,13 @@ try {
        
    )";
     $conn->query($sql);
-    }
+    
 catch (PDOException $e) {
     print("Error connecting to SQL Server.");
     die(print_r($e));
 }
 echo "<h3>Table created.</h3>";
-try {
- $conn = new PDO("sqlsrv:server = tcp:serverforsqlbase.database.windows.net,1433; Database = mysqlbase", "vasilevvs007", "Spacedementia9");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
      $sql =  "CREATE TABLE soft_sotr_tbl(
      id_sotr INT NOT NULL IDENTITY(1,1),
      fio VARCHAR(30),
@@ -33,15 +31,13 @@ try {
      PRIMARY KEY(id_sotr)   
      )";
     $conn->query($sql);
-    }
+    
 catch (PDOException $e) {
     print("Error connecting to SQL Server.");
     die(print_r($e));
 }
 echo "<h3>Table created.</h3>";
-try {
-    $conn = new PDO("sqlsrv:server = tcp:serverforsqlbase.database.windows.net,1433; Database = mysqlbase", "vasilevvs007", "Spacedementia9");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
      $sql = "CREATE TABLE soft_zadachi_tbl(
       soft_id INT NOT NULL,
       soft_sotr_id INT NOT NULL,
@@ -52,7 +48,12 @@ try {
       
       )" ENGINE=InnoDB;
   $conn->query($sql);
+catch (PDOException $e) {
+    print("Error connecting to SQL Server.");
+    die(print_r($e));
 }
+echo "<h3>Table created.</h3>";
+
     
     
     
@@ -65,9 +66,7 @@ try {
 
 
 
-try {
-    $conn = new PDO("sqlsrv:server = tcp:serverforsqlbase.database.windows.net,1433; Database = mysqlbase", "vasilevvs007", "Spacedementia9");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
       $sql = "CREATE TABLE soft_zadachi_tbl(
       id_zadachi INT NOT NULL IDENTITY(1,1),
       zadacha_kr_opis VARCHAR (100),
@@ -77,7 +76,7 @@ try {
       PRIMARY KEY (id_zadachi)
       )";
   $conn->query($sql);
-}
+
 catch (PDOException $e) {
     print("Error connecting to SQL Server.");
     die(print_r($e));
