@@ -49,7 +49,8 @@ try {
       PRIMARY KEY (soft_id,soft_sotr_id),
       FOREIGN KEY (soft_id) REFERENCES soft_projects_tbl (id_proj),
       FOREIGN KEY (soft_sotr_id) REFERENCES soft_sotr_table (id_sotr)
-      )";
+      
+      )" ENGINE=InnoDB;
   $conn->query($sql);
 }
     
