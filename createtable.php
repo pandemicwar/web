@@ -7,21 +7,22 @@ $db = "mysqlbase";
 try {
     $conn = new PDO("sqlsrv:server = tcp:serverforsqlbase.database.windows.net,1433; Database = mysqlbase", "vasilevvs007", "Spacedementia9");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql =   "CREATE TABLE project_tbl(
+    id_proj INT NOT NULL IDENTITY(1,1),
+    name_proj VARCHAR(30),
+    def_proj VARCHAR(30),
+    spis_sotr VARCHAR(500),
+    PRIMARY KEY(id_proj)
+   )";
     $sql =  "CREATE TABLE sotr_tbl(
      id_sotr INT NOT NULL IDENTITY(1,1),
      fio VARCHAR(30),
      doljnost VARCHAR(30),
      spisok_projectov_sotr INT,
      PRIMARY KEY(id_sotr),
-      FOREIGN KEY (spisok_projectov_sotr) REFERENCES project_tbl (id_proj)     
+      FOREIGN KEY (spisok_projectov_sotr) REFERENCES project_tbl (id_proj)    
      )";
-     $sql =   "CREATE TABLE project_tbl(
-    id_proj INT NOT NULL IDENTITY(1,1),
-    name_proj VARCHAR(30),
-    def_proj VARCHAR(30),
-    spis_sotr INT,
-    PRIMARY KEY(id_proj),
-    FOREIGN KEY (spis_sotr) REFERENCES sotr_tbl (id_sotr))";
+    
    
      $sql =  "CREATE TABLE zadacha_tbl(
       id_zadachi INT NOT NULL IDENTITY(1,1),
