@@ -22,6 +22,10 @@ catch (PDOException $e) {
     die(print_r($e));
 }
 echo "<h3>Table created.</h3>";
+
+try {
+    $conn = new PDO("sqlsrv:server = tcp:serverforsqlbase.database.windows.net,1433; Database = mysqlbase", "vasilevvs007", "Spacedementia9");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
      $sql =  "CREATE TABLE 2_tbl(
      id_sotr INT NOT NULL IDENTITY(1,1),
      fio VARCHAR(30),
@@ -37,6 +41,9 @@ catch (PDOException $e) {
     die(print_r($e));
 }
 echo "<h3>Table created.</h3>";
+try {
+    $conn = new PDO("sqlsrv:server = tcp:serverforsqlbase.database.windows.net,1433; Database = mysqlbase", "vasilevvs007", "Spacedementia9");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       $sql = "CREATE TABLE 3_tbl(
       id_zadachi INT NOT NULL IDENTITY(1,1),
       zadacha_kr_opis VARCHAR (100),
